@@ -6,6 +6,9 @@ import Button from "./ui/Button";
 interface AddProductDropdownProps {
   onAddFromList: () => void;
   onQuickAdd: () => void;
+  onCopyFromGroup?: (sourceVariantId: string, sourceGroupId: string) => void;
+  onCopyAllGroupsFromVariant?: (sourceVariantId: string) => void;
+  variants?: unknown[];
   showCopyFrom?: boolean;
 }
 
@@ -13,7 +16,15 @@ export default function AddProductDropdown({
   onAddFromList,
   onQuickAdd,
   showCopyFrom = true,
+  ...rest
 }: AddProductDropdownProps) {
+  // Destructure unused props to avoid linting errors
+  const { onCopyFromGroup, onCopyAllGroupsFromVariant, variants } = rest;
+
+  // Suppress unused variable warnings
+  void onCopyFromGroup;
+  void onCopyAllGroupsFromVariant;
+  void variants;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const clickOutsideRef = useClickOutside<HTMLDivElement>({
