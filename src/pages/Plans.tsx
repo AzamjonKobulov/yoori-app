@@ -332,8 +332,14 @@ export default function Plans() {
                   console.log("Business dropdown selected:", option);
                   setSelectedBusinessPayment(option);
                   setOpenDropdown(null);
-                  console.log("Opening Success modal");
-                  setShowSuccessModal(true);
+
+                  if (option.id === "invoice") {
+                    console.log("Opening Invoice modal");
+                    setShowInvoiceModal(true);
+                  } else {
+                    console.log("Opening Success modal");
+                    setShowSuccessModal(true);
+                  }
                 }}
                 planName="Business"
               />
@@ -442,8 +448,14 @@ export default function Plans() {
                   console.log("Profi dropdown selected:", option);
                   setSelectedProfiPayment(option);
                   setOpenDropdown(null);
-                  console.log("Opening Success modal");
-                  setShowSuccessModal(true);
+
+                  if (option.id === "invoice") {
+                    console.log("Opening Invoice modal");
+                    setShowInvoiceModal(true);
+                  } else {
+                    console.log("Opening Success modal");
+                    setShowSuccessModal(true);
+                  }
                 }}
                 planName="Profi"
               />
